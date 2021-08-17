@@ -16,7 +16,5 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/api", dataRouter);
 
 app.listen(port);
-console.log("Server iniciado en puerto: " + port + "...");
-module.exports = app;
 
 module.exports = app;
