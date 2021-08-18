@@ -8,7 +8,7 @@ var usersRouter = require("./routes/data");
 const DEFAULT_PORT = 6420;
 const port = DEFAULT_PORT;
 var app = express();
-
+app.use(cors())
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
