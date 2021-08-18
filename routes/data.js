@@ -15,9 +15,8 @@ router.get("/", async function (req, res, next) {
       },
     }
   );
-  await res.status(200).send(await response.text());
+  let aux = await response.json();
+  res.status(200).send(aux);
 });
 
 module.exports = router;
-
-console.log(await response.text());
