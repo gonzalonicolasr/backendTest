@@ -5,7 +5,7 @@ var logger = require("morgan");
 var cors = require("cors");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/data");
-const PORT = process.env.PORT || 8080;
+
 var app = express();
 app.use(cors());
 app.use(logger("dev"));
@@ -17,5 +17,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/datos", usersRouter);
 
-app.set("port", PORT);
+const port = 8686;
+app.listen(port, () => {
+  console.log("BackendSteam in " + port);
+});
 module.exports = app;
