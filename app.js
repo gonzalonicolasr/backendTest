@@ -5,7 +5,7 @@ var logger = require("morgan");
 const server = http.createServer(process.env.PORT || 3000);
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/data");
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 var app = express();
 app.use(cors());
 app.use(logger("dev"));
@@ -17,11 +17,5 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/datos", usersRouter);
 
-app.listen(process.env.PORT || 8000, function () {
-  console.log(
-    "Express server listening on port %d in %s mode",
-    this.address().port,
-    app.settings.env
-  );
-});
+app.set("port", PORT);
 module.exports = app;
